@@ -5,4 +5,6 @@ mongoose.connect("mongodb://localhost/music", {
     useFindAndModify: false
 });
 
+mongoose.Promise = Promise;
+
 module.exports = mongoose;
