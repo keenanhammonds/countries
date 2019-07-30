@@ -7,7 +7,11 @@ const ArtistSchema = new Schema({
     },
     Country: {
         type: String
+    },
+    tracks: {
+        type: Schema.Types.ObjectId,
+        ref: "Track"
     }
 });
 
-module.exports = mongoose.model('ArtistSchema', ArtistSchema)
+module.exports = mongoose.model('ArtistSchema', ArtistSchema);
