@@ -1,16 +1,19 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
+const CitySchema = new Schema({ capitalcity: 'string' });
+
 const CountrySchema = new Schema({
-    capital: {
+    name: {
         type: String
     },
-    regiion: {
+    country: {
         type: String
     },
-    currency: {
+    capital: CitySchema,  
+    subregion: {
         type: String
     }
 });
 
-module.exports = mongoose.model('CountrySchema', CountrySchema);
+module.exports = mongoose.model('CitySchema', CitySchema);
