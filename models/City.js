@@ -1,17 +1,17 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-const ArtistSchema = new Schema({
+const CitySchema = new Schema({
     Name: {
         type: String
     },
     Country: {
         type: String
     },
-    tracks: {
-        type: Schema.Types.ObjectId,
-        ref: "Track"
+    timeZone: {
+        type: String
+
     }
 });
 
-module.exports = mongoose.model('ArtistSchema', ArtistSchema);
+module.exports = mongoose.model('CitySchema', CitySchema);

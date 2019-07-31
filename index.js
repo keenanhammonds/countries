@@ -2,16 +2,17 @@ const express = require('express');
 const parser = require('body-parser');
 const app = express();
 const axios = require('axios');
-const url = 'https://api.deezer.com/version/service/id/method/?parameters'
+const url = 'https://api.deezer.com/'
+const album = '/Album'
 
 parser.json();
 
 
 
-axios.get(url, apiKey)
+axios.get(url, album)
   .then(function (res) {
     // handle success
-    console.log(res;
+    console.log(res)
   })
   .catch(function (error) {
     // handle error
