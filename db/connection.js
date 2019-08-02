@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/music", {
+mongoose.connect("mongodb://localhost/countries", {
     useNewUrlParser: true,
     useFindAndModify: false
 });
