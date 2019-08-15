@@ -31,21 +31,28 @@ Country.remove({}).then(() => {
 
       // 2. Insert currencies into Currency collection
       //  Option A:
+            //    - loop through currencies array
       for(let i = 0; i < currencies.length; i++){
-        Currency.collection.find({name: currencies[i]})
+           //    - query Currency for currency with name of current currency
+        Currency.collection.find({name: currencies[i].name}).exec(function(err, currency){
+            
+          //    - if undefined, then insert. else, skip
+          if(err || !currency){
+            console.log(err);
+            console.log(`not found and inserting ${collection[i].name} into collection`)
+            Currency.collection.insert(currencies[i]);
+          }
+        })
+      };
+    });
+  });
+})
 
 
 
 
-      //    - loop through currencies array
-      //    - query Currency for currency with name of current currency
-      //    - if undefined, then insert. else, skip
-  // Currency.collection
-  //         .insert(currencies)
-  //         .then(() => {
-  //           console.log(currencies);
-  //         })
-    
+ 
+
       //  Option B:
       //    - research how to dedupe an array of objects
       //    - insert array into Currency collection
@@ -54,17 +61,5 @@ Country.remove({}).then(() => {
       //    - find country with name of current country in DB
       //    - loop through currencies ----
       //    - find currency with name of current currency ---
-      //    - add currency ID to country.currencies
+      //    - add currency ID to country currencies
 
-        // data.forEach(country => {
-        //   Country.find({name: country.name})
-        //   currencies.forEach(currency => {
-        //     Currency.find({name: currency.name})
-        //   })
-        //   currentCurrency._id = currentCountry.currencies._id;
-        // }) 
-        // console.log(currentCountry)
-        // console.log(currentCurrency);
-    });
-  });
-});
